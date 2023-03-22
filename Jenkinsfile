@@ -10,6 +10,7 @@ pipeline {
         stage('Test') {
             steps {
                 bat " npm i" 
+                bat " npm run cypress:run "
             }
         }
         stage('Deploy') {
