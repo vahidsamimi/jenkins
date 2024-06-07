@@ -3,12 +3,14 @@
 
 <summary>Intro</summary>
 
-### You can add a header
+### Pipeline Syntax
 
-| First Header  | Second Header |
+| Scripted  | Declarative |
 | ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| First syntax  | recent addition |
+| groovy engine  | easier to get started, but not that powerful  |
+| advanced scripting, high flexibility  | pre-defined structure |
+| ``` node {}```  | Content Cell  |
 
 You can add an image or a code block, too.
 
