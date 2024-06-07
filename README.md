@@ -10,7 +10,10 @@
 | First syntax  | recent addition |
 | groovy engine  | easier to get started, but not that powerful  |
 | advanced scripting, high flexibility  | pre-defined structure |
-| ``` node {}```  | Content Cell  |
+| ``` node {}```  | ``` pipeline {
+agent any
+stages {}
+}|
 
 You can add an image or a code block, too.
 
