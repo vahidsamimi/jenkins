@@ -1,5 +1,6 @@
 # jenkins
 ---------
+-
 pipeline {
     agent any
     // the pipeline section we all know and love: stages! :D
@@ -26,4 +27,4 @@ pipeline {
         }
     }
 }
------
+
