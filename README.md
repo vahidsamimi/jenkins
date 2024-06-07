@@ -5,7 +5,10 @@
 
 ### You can add a header
 
-You can add text within a collapsed section. 
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
 
 You can add an image or a code block, too.
 
