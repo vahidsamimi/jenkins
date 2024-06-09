@@ -16,6 +16,7 @@ You can add an image or a code block, too.
 
 ```
 pipeline {
+    // where to execute 
     agent any
     // the pipeline section we all know and love: stages! :D
     stages {
@@ -38,6 +39,17 @@ pipeline {
             steps {
                 echo 'Reporting....'
             }
+        }
+    }
+    post {
+        always {
+            echo 'Done'
+        }
+        success {
+            // example: send msg to microsoft teams
+        }
+        failure {
+            // example: send msg to microsoft teams
         }
     }
 }
