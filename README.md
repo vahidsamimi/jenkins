@@ -121,3 +121,32 @@ pipeline {
 ```
 
 </details>
+<details>
+
+<summary>Credentials in Jenkinsfile</summary>
+
+find all pre-defined vars in jenkinsurl + `/env-vars.html` 
+```
+pipeline {
+    agent any
+    stages {
+        stage('install') {
+            when {
+                expression {
+                    BRANCH_NAME == 'dev' ||  BRANCH_NAME == 'master'
+                }
+            }
+            steps {
+                echo 'Installing requirements...'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+       
+}
+```
+
+</details>
