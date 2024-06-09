@@ -56,5 +56,60 @@ pipeline {
 ```
 
 </details>
----------
+<details>
 
+<summary>Define conditions</summary>
+
+```
+pipeline {
+    agent any
+    stages {
+        stage('install') {
+            when {
+                expression {
+                    BRANCH_NAME == 'dev' ||  BRANCH_NAME == 'master'
+                }
+            }
+            steps {
+                echo 'Installing requirements...'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+       
+}
+```
+
+</details>
+
+<details>
+
+<summary>Enviromental Variables</summary>
+
+```
+pipeline {
+    agent any
+    stages {
+        stage('install') {
+            when {
+                expression {
+                    BRANCH_NAME == 'dev' ||  BRANCH_NAME == 'master'
+                }
+            }
+            steps {
+                echo 'Installing requirements...'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+       
+}
+```
+
+</details>
