@@ -20,6 +20,7 @@ pipeline {
     agent any
     // the pipeline section we all know and love: stages! :D
     stages {
+        // CI: Focuses on integrating code changes and ensuring the build and test processes are automated.
         stage('install') {
             steps {
                 echo 'Installing requirements...'
@@ -38,6 +39,12 @@ pipeline {
         stage('Report') {
             steps {
                 echo 'Reporting....'
+            }
+        }
+        // CD: Ensure that the code is always in a deployable state and reduce the time to release features to users.
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
             }
         }
     }
@@ -89,6 +96,7 @@ pipeline {
 
 <summary>Enviromental Variables</summary>
 
+find all pre-defined vars in jenkinsurl + `/env-vars.html` 
 ```
 pipeline {
     agent any
