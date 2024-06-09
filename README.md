@@ -150,3 +150,10 @@ pipeline {
 ```
 
 </details>
+<details>
+
+<summary>Commands</summary>
+`java -jar /usr/share/java/jenkins.war --version`
+
+
+</details>
