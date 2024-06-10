@@ -112,7 +112,7 @@ pipeline {
         stage('deploy') {
             steps {
                 echo 'deploying the app ...'
-                echo "${TEST_SERVER_USR}"
+                echo "${TEST_SERVER}"
                 // Jenkins always adds _USR and _PSW endings to the names of the variables.
                 //sh "docker login '${TEST_SERVER_URL}' --password '${TEST_SERVER_PSW}' --username '${TEST_SERVER_USR}'"
             }
