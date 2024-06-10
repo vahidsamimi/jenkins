@@ -125,6 +125,7 @@ pipeline {
 
 <summary>Credentials in Jenkinsfile</summary>
 Variant 1 : using `withCredentials` in each seperate stage
+
 ```
 pipeline {
     agent any
@@ -149,6 +150,7 @@ pipeline {
 ```
 variant 2:
 using `environment` 
+
 ```
 pipeline {
     agent any
