@@ -74,7 +74,7 @@ pipeline {
         stage('install') {
             when {
                 expression {
-                    BRANCH_NAME == 'dev' ||  BRANCH_NAME == 'master'
+                    env.BRANCH_NAME == 'dev' || env.BRANCH_NAME == 'master'
                 }
             }
             steps {
@@ -86,8 +86,9 @@ pipeline {
                 echo 'Building..'
             }
         }
-   }    
+    }    
 }
+
 ```
 
 </details>
