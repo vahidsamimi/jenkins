@@ -153,7 +153,7 @@ pipeline {
 <details>
 
 <summary>Others</summary>
-check the Jenkins Version
+Command to check Jenkins version
 `java -jar /usr/share/java/jenkins.war --version`
 
 Link to how install Jenkins server on aws
