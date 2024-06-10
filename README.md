@@ -139,8 +139,9 @@ pipeline {
             steps {
                 echo 'deploying the app ...'
                 withCredentials([usernamePassword(credentialsId: test-server, usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
+                    def url = 'www.url.com'
                     echo "${USER}"
-                    // sh "docker login USER  PASSWORD
+                    // sh "docker login  url -u USER  -p PASSWORD
                 }
             }
         }
@@ -156,6 +157,7 @@ pipeline {
     agent any
     environment {
         TEST_SERVER  = credentials('test-server')
+        TEST_SERVER_URL = 'www.url.com'
     }
     stages {
         stage('install') {
@@ -167,7 +169,7 @@ pipeline {
             steps {
                 echo 'deploying the app ...'
                 // Jenkins always adds _USR and _PSW endings to the names of the variables.
-                sh "docker login '${TEST_SERVER}' --password '${TEST_SERVER_PSW}' --username '${TEST_SERVER_USR}'"
+                sh "docker login '${TEST_SERVER_URL}' --password '${TEST_SERVER_PSW}' --username '${TEST_SERVER_USR}'"
             }
         }
        
