@@ -138,6 +138,7 @@ pipeline {
         stage('deploy') {
             steps {
                 echo 'deploying the app ...'
+                // usernamePassword is the type of credential that I created in jenkins server
                 withCredentials([usernamePassword(credentialsId: test-server, usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
                     def url = 'www.url.com'
                     echo "${USER}"
