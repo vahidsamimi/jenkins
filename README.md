@@ -119,7 +119,32 @@ pipeline {
        
 }
 ```
-
+```
+pipeline {
+    agent any
+    environment {
+        TEST_SERVER = 'www.url.com'
+        BOOLEAN_VAR  = 'true' //boolean value as string
+    }
+    stages {
+        stage('install') {
+            when {
+            expression {
+                !env.BOOLEAN_VAR.toBoolean()
+                }
+            }
+            steps {
+                echo 'Installing requirements...'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+       
+}
+```
 </details>
 <details>
 
