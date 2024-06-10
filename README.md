@@ -125,24 +125,22 @@ pipeline {
 
 <summary>Credentials in Jenkinsfile</summary>
 
-find all pre-defined vars in jenkinsurl + `/env-vars.html` 
 ```
 pipeline {
     agent any
     stages {
         stage('install') {
-            when {
-                expression {
-                    BRANCH_NAME == 'dev' ||  BRANCH_NAME == 'master'
-                }
-            }
             steps {
                 echo 'Installing requirements...'
             }
         }
-        stage('Build') {
+        stage('deploy') {
             steps {
-                echo 'Building..'
+                echo 'deploying the app ...'
+                withCredentials([usernamePassword(credentialsId: test-server, usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
+                    echo "${USER}"
+                    // sh "docker login USER  PASSWORD
+                }
             }
         }
        
