@@ -48,13 +48,41 @@
 //         }
 //     }
 // }
+
+////////////////////////////////////////////////////////////////////////////////////////
+// pipeline {
+//     agent any
+//     stages {
+//         stage('install') {
+//             when {
+//                 expression {
+//                     env.BRANCH_NAME == 'dev' || env.BRANCH_NAME == 'master'
+//                 }
+//             }
+//             steps {
+//                 echo 'Installing requirements...'
+//             }
+//         }
+//         stage('Build') {
+//             steps {
+//                 echo 'Building..'
+//             }
+//         }
+//     }    
+// }
+
+//////////////////////////////////////////////////////////////////////////////////////
 pipeline {
     agent any
+    environment {
+        TEST_SERVER = 'www.url.com'
+        BOOLEAN_VAR  = 'true' //boolean value as string
+    }
     stages {
         stage('install') {
             when {
-                expression {
-                    env.BRANCH_NAME == 'dev' || env.BRANCH_NAME == 'master'
+            expression {
+                env.BOOLEAN_VAR.toBoolean()
                 }
             }
             steps {
@@ -66,6 +94,6 @@ pipeline {
                 echo 'Building..'
             }
         }
-    }    
+    }   
 }
 
