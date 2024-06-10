@@ -97,26 +97,39 @@
 //     }   
 // }
 //////////////////////////////////////////////////////////////////////////////////////
+// pipeline {
+//     agent any
+//     environment {
+//         TEST_SERVER  = credentials('test-server')
+//         TEST_SERVER_URL = 'www.url.com'
+//     }
+//     stages {
+//         stage('install') {
+//             steps {
+//                 echo 'Installing requirements...'
+//             }
+//         }
+//         stage('deploy') {
+//             steps {
+//                 echo 'deploying the app ...'
+//                 // Jenkins always adds _USR and _PSW endings to the names of the variables.
+//                 //sh "docker login '${TEST_SERVER_URL}' --password '${TEST_SERVER_PSW}' --username '${TEST_SERVER_USR}'"
+//             }
+//         }
+       
+//     }
+// }
+///////////////////////////////////////////////////////////////////////////////////
 pipeline {
     agent any
-    environment {
-        TEST_SERVER  = credentials('test-server')
-        TEST_SERVER_URL = 'www.url.com'
+    tools {
+        nodejs "node-22.2"
     }
     stages {
         stage('install') {
             steps {
-                echo 'Installing requirements...'
+                sh 'npm -v'
             }
         }
-        stage('deploy') {
-            steps {
-                echo 'deploying the app ...'
-                echo "${TEST_SERVER}"
-                // Jenkins always adds _USR and _PSW endings to the names of the variables.
-                //sh "docker login '${TEST_SERVER_URL}' --password '${TEST_SERVER_PSW}' --username '${TEST_SERVER_USR}'"
-            }
-        }
-       
     }
 }
