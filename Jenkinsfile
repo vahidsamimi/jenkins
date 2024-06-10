@@ -72,28 +72,51 @@
 // }
 
 //////////////////////////////////////////////////////////////////////////////////////
+// pipeline {
+//     agent any
+//     environment {
+//         TEST_SERVER = 'www.url.com'
+//         BOOLEAN_VAR  = 'true' //boolean value as string
+//     }
+//     stages {
+//         stage('install') {
+//             when {
+//             expression {
+//                 env.BOOLEAN_VAR.toBoolean()
+//                 }
+//             }
+//             steps {
+//                 echo 'Installing requirements...'
+//             }
+//         }
+//         stage('Build') {
+//             steps {
+//                 echo 'Building..'
+//             }
+//         }
+//     }   
+// }
+//////////////////////////////////////////////////////////////////////////////////////
 pipeline {
     agent any
     environment {
-        TEST_SERVER = 'www.url.com'
-        BOOLEAN_VAR  = 'true' //boolean value as string
+        TEST_SERVER  = credentials('test-server')
+        TEST_SERVER_URL = 'www.url.com'
     }
     stages {
         stage('install') {
-            when {
-            expression {
-                env.BOOLEAN_VAR.toBoolean()
-                }
-            }
             steps {
                 echo 'Installing requirements...'
             }
         }
-        stage('Build') {
+        stage('deploy') {
             steps {
-                echo 'Building..'
+                echo 'deploying the app ...'
+                echo "${TEST_SERVER_USR}"
+                // Jenkins always adds _USR and _PSW endings to the names of the variables.
+                //sh "docker login '${TEST_SERVER_URL}' --password '${TEST_SERVER_PSW}' --username '${TEST_SERVER_USR}'"
             }
         }
-    }   
+       
+    }
 }
-
