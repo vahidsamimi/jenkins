@@ -152,8 +152,12 @@ pipeline {
 </details>
 <details>
 
-<summary>Commands</summary>
+<summary>Others</summary>
+check the Jenkins Version
 `java -jar /usr/share/java/jenkins.war --version`
+
+Link to how install Jenkins server on aws
+`https://d1.awsstatic.com/Projects/P5505030/aws-project_Jenkins-build-server.pdf`
 
 
 </details>
