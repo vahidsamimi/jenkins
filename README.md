@@ -205,6 +205,26 @@ pipeline {
 </details>
 <details>
 
+<summary>Build Tools</summary>    
+pipeline {
+    agent any
+    tools {
+        nodejs "node-22.2"
+    }
+    stages {
+        stage('install') {
+            steps {
+                sh 'npm -v'
+            }
+        }
+    }
+}
+```
+
+
+</details>
+<details>
+
 <summary>Others</summary>
 Command to check Jenkins version
 `java -jar /usr/share/java/jenkins.war --version`
