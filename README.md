@@ -12,7 +12,6 @@
 | advanced scripting, high flexibility  | pre-defined structure |
 | ``` node {}```  | ``` pipeline {agent any stages {...}}```|
 
-You can add an image or a code block, too.
 
 ```
 pipeline {
