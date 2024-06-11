@@ -1,34 +1,3 @@
-properties(
-    [buildDiscarder(
-      logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '30', numToKeepStr: '10')
-    ),
-    [$class: 'RebuildSettings', autoRebuild: false, rebuildDisabled: false],
-    parameters([
-        choiceParam(name: "TYPE", choices: "snapshot\nreleases", description: "Deployment type"),
-        choiceParam(name: "ENVIRONMENT", choices: "development\nproduction\nlocal", description: "AWS Region within which to deploy Infrastructure"),
-        string(name: "PIPELINE_BRANCH", defaultValue: "master", description: "")
-    ]),
-
-    pipelineTriggers([])
-  ])
-
-switch(params.ENVIRONMENT) {
-    case "dev":
-        ACCOUNT = "aaaaaaaaa"
-        break
-    case "prod":
-        ACCOUNT = "bbbbbbbbb"
-        break
-    default:
-        ACCOUNT = "ccccccccc"
-        break
-}
-
-def sendSlackMessage(color, message) {
-    // slackSend baseUrl: 'https://hooks.slack.com/services/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',
-    //           color: color,
-    //           message: "${message}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})"
-}
 
 node {
     timestamps {
